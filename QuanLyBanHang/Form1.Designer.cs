@@ -96,6 +96,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.textBox_manv2 = new System.Windows.Forms.TextBox();
             this.textBox_makh2 = new System.Windows.Forms.TextBox();
             this.textBox_mahd = new System.Windows.Forms.TextBox();
@@ -107,16 +108,15 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.textBox_searchnv = new System.Windows.Forms.TextBox();
+            this.textBox_searchkh = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.textBox_searchhd = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.label21 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textBox_searchkh = new System.Windows.Forms.TextBox();
-            this.textBox_searchnv = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.textBox_giaban = new System.Windows.Forms.TextBox();
@@ -913,6 +913,13 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Thông tin";
             // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(136, 78);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(124, 22);
+            this.dateTimePicker2.TabIndex = 17;
+            // 
             // textBox_manv2
             // 
             this.textBox_manv2.Location = new System.Drawing.Point(136, 175);
@@ -1024,6 +1031,42 @@
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Tìm kiếm";
             // 
+            // textBox_searchnv
+            // 
+            this.textBox_searchnv.Location = new System.Drawing.Point(626, 24);
+            this.textBox_searchnv.Name = "textBox_searchnv";
+            this.textBox_searchnv.Size = new System.Drawing.Size(124, 22);
+            this.textBox_searchnv.TabIndex = 13;
+            this.textBox_searchnv.TextChanged += new System.EventHandler(this.textBox_searchnv_TextChanged);
+            // 
+            // textBox_searchkh
+            // 
+            this.textBox_searchkh.Location = new System.Drawing.Point(360, 24);
+            this.textBox_searchkh.Name = "textBox_searchkh";
+            this.textBox_searchkh.Size = new System.Drawing.Size(124, 22);
+            this.textBox_searchkh.TabIndex = 12;
+            this.textBox_searchkh.TextChanged += new System.EventHandler(this.textBox_searchkh_TextChanged);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(517, 30);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(86, 16);
+            this.label22.TabIndex = 11;
+            this.label22.Text = "Mã nhân viên";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(256, 30);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(98, 16);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Mã khách hàng";
+            // 
             // textBox_searchhd
             // 
             this.textBox_searchhd.Location = new System.Drawing.Point(101, 24);
@@ -1075,49 +1118,6 @@
             this.label21.Size = new System.Drawing.Size(262, 31);
             this.label21.TabIndex = 13;
             this.label21.Text = "Danh Sách Hóa Đơn";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(256, 30);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(98, 16);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Mã khách hàng";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(517, 30);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(86, 16);
-            this.label22.TabIndex = 11;
-            this.label22.Text = "Mã nhân viên";
-            // 
-            // textBox_searchkh
-            // 
-            this.textBox_searchkh.Location = new System.Drawing.Point(360, 24);
-            this.textBox_searchkh.Name = "textBox_searchkh";
-            this.textBox_searchkh.Size = new System.Drawing.Size(124, 22);
-            this.textBox_searchkh.TabIndex = 12;
-            this.textBox_searchkh.TextChanged += new System.EventHandler(this.textBox_searchkh_TextChanged);
-            // 
-            // textBox_searchnv
-            // 
-            this.textBox_searchnv.Location = new System.Drawing.Point(626, 24);
-            this.textBox_searchnv.Name = "textBox_searchnv";
-            this.textBox_searchnv.Size = new System.Drawing.Size(124, 22);
-            this.textBox_searchnv.TabIndex = 13;
-            this.textBox_searchnv.TextChanged += new System.EventHandler(this.textBox_searchnv_TextChanged);
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(136, 78);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(124, 22);
-            this.dateTimePicker2.TabIndex = 17;
             // 
             // tabPage5
             // 
@@ -1328,7 +1328,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Chương trình quản lý cửa hàng thức ăn nhanh";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
