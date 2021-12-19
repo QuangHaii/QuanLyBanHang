@@ -15,20 +15,21 @@ namespace QuanLyBanHang
         public Form1()
         {
             InitializeComponent();
+            showdata();
         }
 
         Modify modify;
         HangHoa hangHoa;
         KhachHang khachHang;
         NhanVien nhanVien;
-        private void Form1_Load(object sender, EventArgs e)
+        private void showdata()
         {
             modify = new Modify();
             try
             {
                 dataGridView1.DataSource = modify.SearchTable("select * from HANGHOA");
-                dataGridView3.DataSource = modify.SearchTable("select * from KHACHHANG");
-                dataGridView2.DataSource = modify.SearchTable("select * from NHANVIEN");
+                dataGridView2.DataSource = modify.SearchTable("select * from KHACHHANG");
+                dataGridView3.DataSource = modify.SearchTable("select * from NHANVIEN");
             }
             catch (Exception ex)
             {
@@ -104,7 +105,7 @@ namespace QuanLyBanHang
                             string query = "select * from HANGHOA";
                             dataGridView1.DataSource = modify.SearchTable(query);
                             MessageBox.Show("Thêm thành công!", "Thông báo");
-                            Form1_Load(sender, e);
+                            showdata();
                         }
                     }
                     else
@@ -138,7 +139,7 @@ namespace QuanLyBanHang
                             string query = "select * from HANGHOA";
                             dataGridView1.DataSource = modify.SearchTable(query);
                             MessageBox.Show("Sửa thành công!", "Thông báo");
-                            Form1_Load(sender, e);
+                            showdata();
                         }
                     }
                     else
@@ -163,7 +164,7 @@ namespace QuanLyBanHang
                     string query = "select * from HANGHOA";
                     dataGridView1.DataSource = modify.SearchTable(query);
                     MessageBox.Show("Xóa thành công!", "Thông báo");
-                    Form1_Load(sender, e);
+                    showdata();
                 }
             }
             else
@@ -181,12 +182,12 @@ namespace QuanLyBanHang
             textBox_slton.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
         }
 
-        private void textBox6_timkiem_TextChanged(object sender, EventArgs e)
+        private void textBox_timhh_TextChanged(object sender, EventArgs e)
         {
             string name = textBox_timhh.Text.Trim();
             if (name == "")
             {
-                Form1_Load(sender, e);
+                showdata();
             }
             else
             {
@@ -238,7 +239,7 @@ namespace QuanLyBanHang
                             string query = "select * from KHACHHANG";
                             dataGridView2.DataSource = modify.SearchTable(query);
                             MessageBox.Show("Thêm thành công!", "Thông báo");
-                            Form1_Load(sender, e);
+                            showdata();
                         }
                     }
                     else
@@ -272,7 +273,7 @@ namespace QuanLyBanHang
                             string query = "select * from KHACHHANG";
                             dataGridView2.DataSource = modify.SearchTable(query);
                             MessageBox.Show("Sửa thành công!", "Thông báo");
-                            Form1_Load(sender, e);
+                            showdata();
                         }
                     }
                     else
@@ -297,7 +298,7 @@ namespace QuanLyBanHang
                     string query = "select * from KHACHHANG";
                     dataGridView2.DataSource = modify.SearchTable(query);
                     MessageBox.Show("Xóa thành công!", "Thông báo");
-                    Form1_Load(sender, e);
+                    showdata();
                 }
             }
             else
@@ -306,12 +307,12 @@ namespace QuanLyBanHang
             }
         }
 
-        private void textBox6_timkh_TextChanged(object sender, EventArgs e)
+        private void textBox_timkh_TextChanged(object sender, EventArgs e)
         {
             string name = textBox_timkh.Text.Trim();
             if (name == "")
             {
-                Form1_Load(sender, e);
+                showdata();
             }
             else
             {
@@ -375,7 +376,7 @@ namespace QuanLyBanHang
                             string query = "select * from NHANVIEN";
                             dataGridView3.DataSource = modify.SearchTable(query);
                             MessageBox.Show("Thêm thành công!", "Thông báo");
-                            Form1_Load(sender, e);
+                            showdata();
                         }
                     }
                     else
@@ -409,7 +410,7 @@ namespace QuanLyBanHang
                             string query = "select * from NHANVIEN";
                             dataGridView3.DataSource = modify.SearchTable(query);
                             MessageBox.Show("Sửa thành công!", "Thông báo");
-                            Form1_Load(sender, e);
+                            showdata();
                         }
                     }
                     else
@@ -434,7 +435,7 @@ namespace QuanLyBanHang
                     string query = "select * from NHANVIEN";
                     dataGridView3.DataSource = modify.SearchTable(query);
                     MessageBox.Show("Xóa thành công!", "Thông báo");
-                    Form1_Load(sender, e);
+                    showdata();
                 }
             }
             else
@@ -455,12 +456,12 @@ namespace QuanLyBanHang
                 radioButton4.Checked = true;
         }
 
-        private void textBox6_timkiemnv_TextChanged(object sender, EventArgs e)
+        private void textBox_timnv_TextChanged(object sender, EventArgs e)
         {
             string name = textBox_timnv.Text.Trim();
             if (name == "")
             {
-                Form1_Load(sender, e);
+                showdata();
             }
             else
             {
