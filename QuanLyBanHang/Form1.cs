@@ -425,7 +425,7 @@ namespace QuanLyBanHang
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click_1(object sender, EventArgs e)
         {
             string id = dataGridView3.SelectedRows[0].Cells[0].Value.ToString();
             if (modify.XoaNV(id))
@@ -433,7 +433,7 @@ namespace QuanLyBanHang
                 if (MessageBox.Show("Bạn có muốn xóa dữ liệu không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     string query = "select * from NHANVIEN";
-                    dataGridView3.DataSource = modify.SearchTable(query);
+                    dataGridView2.DataSource = modify.SearchTable(query);
                     MessageBox.Show("Xóa thành công!", "Thông báo");
                     showdata();
                 }
