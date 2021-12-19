@@ -246,6 +246,76 @@ namespace QuanLyBanHang
             }
             return true;
         }
+        //--------------------------Hóa Đơn----------------------------
+        public bool ThemHD(HoaDon hoaDon)
+        {
+            SqlConnection sqlConnection = Connection.GetConnection();
+            string query = "insert into NHANVIEN values (@MAHD,@NGAY,@MAKH,@MANV)";
+            try
+            {
+                sqlConnection.Open();
+                command = new SqlCommand(query, sqlConnection);
+                command.Parameters.Add("@MAHD", SqlDbType.VarChar).Value = hoaDon.Mahd;
+                command.Parameters.Add("@NGAY", SqlDbType.Date).Value = hoaDon.Ngay;
+                command.Parameters.Add("@MAKH", SqlDbType.VarChar).Value = hoaDon.Makh;
+                command.Parameters.Add("@MANV", SqlDbType.VarChar).Value = hoaDon.Manv;
+                command.ExecuteNonQuery();
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return true;
+        }
+        public bool SuaHD(HoaDon hoaDon)
+        {
+            SqlConnection sqlConnection = Connection.GetConnection();
+            string query = "update HOADON set MAHD=@MAHD,NGAY=@NGAY,MAKH=@MAKH,MANV=@MANV where MAHD=@MAHD";
+            try
+            {
+                sqlConnection.Open();
+                command = new SqlCommand(query, sqlConnection);
+                command.Parameters.Add("@MAHD", SqlDbType.VarChar).Value = hoaDon.Mahd;
+                command.Parameters.Add("@NGAY", SqlDbType.Date).Value = hoaDon.Ngay;
+                command.Parameters.Add("@MAKH", SqlDbType.VarChar).Value = hoaDon.Makh;
+                command.Parameters.Add("@MANV", SqlDbType.VarChar).Value = hoaDon.Manv;
+                command.ExecuteNonQuery();
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return true;
+        }
+        public bool XoaHD(string id)
+        {
+            SqlConnection sqlConnection = Connection.GetConnection();
+            string query = "delete from HOADON where MAHD=@MAHD";
+            try
+            {
+                sqlConnection.Open();
+                command = new SqlCommand(query, sqlConnection);
+                command.Parameters.Add("@MAHD", SqlDbType.VarChar).Value = id;
+                command.ExecuteNonQuery();
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return true;
+        }
     }
 }
 

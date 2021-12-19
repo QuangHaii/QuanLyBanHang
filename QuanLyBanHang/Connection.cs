@@ -9,7 +9,7 @@ namespace QuanLyBanHang
 {
     internal class Connection
     {
-        private static string stringConnection = @"Data Source=DESKTOP-J0NI0G7\SQLEXPRESS;Initial Catalog=QLBH;Integrated Security=True";
+        private static string stringConnection = @"Data Source=DESKTOP-J0NI0G7\SQLEXPRESS;Initial Catalog=QLBANHANG;Integrated Security=True";
         public static SqlConnection GetConnection()
         {
             return new SqlConnection(stringConnection);
