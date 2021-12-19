@@ -23,6 +23,7 @@ namespace QuanLyBanHang
         KhachHang khachHang;
         NhanVien nhanVien;
         HoaDon hoaDon;
+        ChiTietHoaDon chiTietHoaDon;
         private void showdata()
         {
             modify = new Modify();
@@ -32,6 +33,7 @@ namespace QuanLyBanHang
                 dataGridView2.DataSource = modify.SearchTable("select * from KHACHHANG");
                 dataGridView3.DataSource = modify.SearchTable("select * from NHANVIEN");
                 dataGridView4.DataSource = modify.SearchTable("select * from HOADON");
+                dataGridView5.DataSource = modify.SearchTable("select * from CTHD");
             }
             catch (Exception ex)
             {
@@ -64,6 +66,10 @@ namespace QuanLyBanHang
             dateTimePicker2.Value = DateTime.Now;
             textBox_makh2.Text = "";
             textBox_manv2.Text = "";
+            textBox_macthd.Text = "";
+            textBox_macthh.Text = "";
+            textBox_sl.Text = "";
+            textBox_giaban.Text = "";
         }
         //--------------------------Hàng Hóa---------------------------------
         private bool checkboxHH()
@@ -572,7 +578,7 @@ namespace QuanLyBanHang
         private void button_sua_Click(object sender, EventArgs e)
         {
             string id = dataGridView4.SelectedRows[0].Cells[0].Value.ToString();
-            if (modify.XoaNV(id))
+            if (modify.XoaHD(id))
             {
                 if (MessageBox.Show("Bạn có muốn xóa dữ liệu không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
@@ -598,34 +604,16 @@ namespace QuanLyBanHang
         private void textBox_searchhd_TextChanged(object sender, EventArgs e)
         {
             string name = textBox_searchhd.Text.Trim();
-            string name1 = textBox_searchkh.Text.Trim();
-            string name2 = textBox_searchnv.Text.Trim();
             string query;
             if (name == "")
             {
                 showdata();
             }
-            else if (name1 == "" && name2 == "")
+            else
             {
                 query = "Select * from HOADON where MAHD like '%" + name + "%'";
                 dataGridView4.DataSource = modify.SearchTable(query);
             }
-            else if (name1 != "" && name2 =="")
-            {
-                query = "Select * from HOADON where MAHD like '%" + name + "%' and MAKH like '%" + name1 + "%'";
-                dataGridView4.DataSource = modify.SearchTable(query);
-            }
-            else if (name1 == "" && name2 != "")
-            {
-                query = "Select * from HOADON where MAHD like '%" + name + "%' and MANV like '%" + name2 + "%'";
-                dataGridView4.DataSource = modify.SearchTable(query);
-            }
-            else if (name1 != "" && name2 != "")
-            {
-                query = "Select * from HOADON where MAHD like '%" + name + "%' and MAKH like '%" + name1 + "%' and MANV like '%" + name2 + "%'";
-                dataGridView4.DataSource = modify.SearchTable(query);
-            }
-
         }
 
         private void textBox_searchkh_TextChanged(object sender, EventArgs e)
@@ -659,6 +647,137 @@ namespace QuanLyBanHang
             {
                 string query = "Select * from HOADON where MANV like '%" + name + "%'";
                 dataGridView4.DataSource = modify.SearchTable(query);
+            }
+        }
+        //------------------------Chi Tiet Hoa Don---------------------------------
+        private bool checkboxCTHD()
+        {
+            if (textBox_macthd.Text == "")
+            {
+                MessageBox.Show("Mời bạn nhập mã hóa đơn!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (textBox_macthh.Text == "")
+            {
+                MessageBox.Show("Mời bạn nhập mã hàng hóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (textBox_sl.Text == "")
+            {
+                MessageBox.Show("Mời bạn nhập số lượng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (textBox_giaban.Text == "")
+            {
+                MessageBox.Show("Mời bạn nhập giá bán!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+        private void button12_Click(object sender, EventArgs e)
+        {
+            if (checkboxCTHD())
+            {
+                try
+                {
+                    string mahd = this.textBox_macthd.Text;
+                    string mahh = this.textBox_macthh.Text;
+                    int sl = int.Parse(this.textBox_sl.Text);
+                    int giaban = int.Parse(this.textBox_giaban.Text);
+                    chiTietHoaDon = new ChiTietHoaDon(mahd, mahh, sl, giaban);
+                    if (modify.ThemCTHD(chiTietHoaDon))
+                    {
+                        if (MessageBox.Show("Bạn có muốn thêm dữ liệu không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+                            string query = "select * from CTHD";
+                            dataGridView5.DataSource = modify.SearchTable(query);
+                            MessageBox.Show("Thêm thành công!", "Thông báo");
+                            showdata();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lỗi: Không thêm vào được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (checkboxCTHD())
+            {
+                try
+                {
+                    string mahd = this.textBox_macthd.Text;
+                    string mahh = this.textBox_macthh.Text;
+                    int sl = int.Parse(this.textBox_sl.Text);
+                    int giaban = int.Parse(this.textBox_giaban.Text);
+                    chiTietHoaDon = new ChiTietHoaDon(mahd, mahh, sl, giaban);
+                    if (modify.SuaCTHD(chiTietHoaDon))
+                    {
+                        if (MessageBox.Show("Bạn có muốn sửa dữ liệu không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+                            string query = "select * from CTHD";
+                            dataGridView5.DataSource = modify.SearchTable(query);
+                            MessageBox.Show("Sửa thành công!", "Thông báo");
+                            showdata();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lỗi: Không Sửa được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                }
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            string id = dataGridView5.SelectedRows[0].Cells[0].Value.ToString();
+            if (modify.XoaCTHD(id))
+            {
+                if (MessageBox.Show("Bạn có muốn xóa dữ liệu không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    string query = "select * from CTHD";
+                    dataGridView5.DataSource = modify.SearchTable(query);
+                    MessageBox.Show("Xóa thành công!", "Thông báo");
+                    showdata();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lỗi: Không xóa được", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dataGridView5_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox_macthd.Text = dataGridView5.SelectedRows[0].Cells[0].Value.ToString();
+            textBox_macthh.Text = dataGridView5.SelectedRows[0].Cells[1].Value.ToString();
+            textBox_sl.Text = dataGridView5.SelectedRows[0].Cells[2].Value.ToString();
+            textBox_giaban.Text = dataGridView5.SelectedRows[0].Cells[3].Value.ToString();
+        }
+
+        private void textBox_timcthd_TextChanged(object sender, EventArgs e)
+        {
+            string name = textBox_timcthd.Text.Trim();
+            if (name == "")
+            {
+                showdata();
+            }
+            else
+            {
+                string query = "Select * from CTHD where MAHD like N'%" + name + "%'";
+                dataGridView5.DataSource = modify.SearchTable(query);
             }
         }
     }

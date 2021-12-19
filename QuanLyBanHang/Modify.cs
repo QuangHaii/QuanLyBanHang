@@ -40,7 +40,7 @@ namespace QuanLyBanHang
                 command.Parameters.Add("@MAHH", SqlDbType.VarChar).Value = hangHoa.Mahh;
                 command.Parameters.Add("@TENHH", SqlDbType.NVarChar).Value = hangHoa.Tenhh;
                 command.Parameters.Add("@DVT", SqlDbType.NVarChar).Value = hangHoa.Dvt;
-                command.Parameters.Add("@GIAMUA", SqlDbType.Money).Value = hangHoa.Giamua;
+                command.Parameters.Add("@GIAMUA", SqlDbType.Int).Value = hangHoa.Giamua;
                 command.Parameters.Add("@SLTON", SqlDbType.Int).Value = hangHoa.Slton;
                 command.ExecuteNonQuery();
             }
@@ -299,6 +299,78 @@ namespace QuanLyBanHang
         {
             SqlConnection sqlConnection = Connection.GetConnection();
             string query = "delete from HOADON where MAHD=@MAHD";
+            try
+            {
+                sqlConnection.Open();
+                command = new SqlCommand(query, sqlConnection);
+                command.Parameters.Add("@MAHD", SqlDbType.VarChar).Value = id;
+                command.ExecuteNonQuery();
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return true;
+        }
+        //------------------------Chi Tiet Hoa Don-------------------------
+        public bool ThemCTHD(ChiTietHoaDon chiTietHoaDon)
+        {
+            SqlConnection sqlConnection = Connection.GetConnection();
+            string query = "insert into CTHD values (@MAHD,@MAHH,@SL,@GIABAN)";
+            try
+            {
+                sqlConnection.Open();
+                command = new SqlCommand(query, sqlConnection);
+                command.Parameters.Add("@MAHD", SqlDbType.VarChar).Value = chiTietHoaDon.Mahd;
+                command.Parameters.Add("@MAHH", SqlDbType.VarChar).Value = chiTietHoaDon.Mahh;
+                command.Parameters.Add("@SL", SqlDbType.Int).Value = chiTietHoaDon.Sl;
+                command.Parameters.Add("@GIABAN", SqlDbType.Int).Value = chiTietHoaDon.Giaban;
+                command.ExecuteNonQuery();
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return true;
+        }
+
+        public bool SuaCTHD(ChiTietHoaDon chiTietHoaDon)
+        {
+            SqlConnection sqlConnection = Connection.GetConnection();
+            string query = "update CTHD set MAHD=@MAHD,MAHH=@MAHH,SL=@SL,GIABAN=@GIABAN where MAHD=@MAHD";
+            try
+            {
+                sqlConnection.Open();
+                command = new SqlCommand(query, sqlConnection);
+                command.Parameters.Add("@MAHD", SqlDbType.VarChar).Value = chiTietHoaDon.Mahd;
+                command.Parameters.Add("@MAHH", SqlDbType.VarChar).Value = chiTietHoaDon.Mahh;
+                command.Parameters.Add("@SL", SqlDbType.Int).Value = chiTietHoaDon.Sl;
+                command.Parameters.Add("@GIABAN", SqlDbType.Int).Value = chiTietHoaDon.Giaban;
+                command.ExecuteNonQuery();
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+            return true;
+        }
+
+        public bool XoaCTHD(string id)
+        {
+            SqlConnection sqlConnection = Connection.GetConnection();
+            string query = "delete from CTHD where MAHD=@MAHD";
             try
             {
                 sqlConnection.Open();

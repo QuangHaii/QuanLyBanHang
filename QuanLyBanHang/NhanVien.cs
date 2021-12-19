@@ -17,6 +17,7 @@ namespace QuanLyBanHang
         {
 
         }
+
         public NhanVien(string manv, string tennv, DateTime ngaysinh, char gioi, int luong)
         {
             _manv = manv;
@@ -25,6 +26,7 @@ namespace QuanLyBanHang
             _gioi = gioi;
             _luong = luong;
         }
+
         public string Manv { get => _manv; set => _manv = value; }
         public string Tennv { get => _tennv; set => _tennv = value; }
         public DateTime Ngaysinh { get => _ngaysinh; set => _ngaysinh = value; }
