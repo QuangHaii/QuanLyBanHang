@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace QuanLyBanHang
 {
-    public partial class ThongKeCTHD: Form
+    public partial class ThongKeCTHD : Form
     {
         public ThongKeCTHD()
         {
@@ -40,13 +40,18 @@ namespace QuanLyBanHang
                 MessageBox.Show("Lỗi: " + ex.Message, "Lỗi: ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private bool checkcb1()
+        {
+            if (comboBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Mời bạn chọn điều kiện!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedIndex == -1)
-            {
-                showdata();
-            }
-            else
+
             switch (comboBox1.SelectedIndex)
             {
                 case 0:
@@ -91,21 +96,23 @@ namespace QuanLyBanHang
             }
             else
             {
+                try
+                {
                     query = "Select MAHD,MAHH,GIABAN from CTHD where GIABAN" + dieukien + name;
                     dataGridView3.DataSource = modify.SearchTable(query);
                     query = "Select count(GIABAN) from CTHD where GIABAN" + dieukien + name;
                     dataGridView5.DataSource = modify.SearchTable(query);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox2.SelectedIndex == -1)
-            {
-                showdata();
-            }
-            else
-                switch (comboBox2.SelectedIndex)
+            switch (comboBox2.SelectedIndex)
             {
                 case 0:
                     {
@@ -149,10 +156,17 @@ namespace QuanLyBanHang
             }
             else
             {
-                query = "Select MAHD,MAHH,SL from CTHD where SL " +dieukien+ name;
-                dataGridView3.DataSource = modify.SearchTable(query);
-                query = "Select count(SL) from CTHD where SL " + dieukien + name;
-                dataGridView5.DataSource = modify.SearchTable(query);
+                try
+                {
+                    query = "Select MAHD,MAHH,SL from CTHD where SL " + dieukien + name;
+                    dataGridView3.DataSource = modify.SearchTable(query);
+                    query = "Select count(SL) from CTHD where SL " + dieukien + name;
+                    dataGridView5.DataSource = modify.SearchTable(query);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }

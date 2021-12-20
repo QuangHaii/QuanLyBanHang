@@ -31,8 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button_thongkehh = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button_thongkehh = new System.Windows.Forms.Button();
             this.textBox_slton = new System.Windows.Forms.TextBox();
             this.textBox_giamua = new System.Windows.Forms.TextBox();
             this.textBox_dvt = new System.Windows.Forms.TextBox();
@@ -53,6 +53,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button13 = new System.Windows.Forms.Button();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -75,6 +76,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.button14 = new System.Windows.Forms.Button();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
@@ -97,6 +99,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.button15 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.textBox_manv2 = new System.Windows.Forms.TextBox();
             this.textBox_makh2 = new System.Windows.Forms.TextBox();
@@ -120,6 +123,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.button16 = new System.Windows.Forms.Button();
             this.textBox_giaban = new System.Windows.Forms.TextBox();
             this.textBox_sl = new System.Windows.Forms.TextBox();
             this.textBox_macthh = new System.Windows.Forms.TextBox();
@@ -137,10 +141,6 @@
             this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.label29 = new System.Windows.Forms.Label();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -209,16 +209,6 @@
             this.tabPage1.Text = "Hàng Hóa";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button_thongkehh
-            // 
-            this.button_thongkehh.Location = new System.Drawing.Point(104, 307);
-            this.button_thongkehh.Name = "button_thongkehh";
-            this.button_thongkehh.Size = new System.Drawing.Size(75, 30);
-            this.button_thongkehh.TabIndex = 9;
-            this.button_thongkehh.Text = "Thống Kê";
-            this.button_thongkehh.UseVisualStyleBackColor = true;
-            this.button_thongkehh.Click += new System.EventHandler(this.button_thongkehh_Click);
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.button_thongkehh);
@@ -243,6 +233,16 @@
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin";
+            // 
+            // button_thongkehh
+            // 
+            this.button_thongkehh.Location = new System.Drawing.Point(104, 307);
+            this.button_thongkehh.Name = "button_thongkehh";
+            this.button_thongkehh.Size = new System.Drawing.Size(75, 30);
+            this.button_thongkehh.TabIndex = 9;
+            this.button_thongkehh.Text = "Thống Kê";
+            this.button_thongkehh.UseVisualStyleBackColor = true;
+            this.button_thongkehh.Click += new System.EventHandler(this.button_thongkehh_Click);
             // 
             // textBox_slton
             // 
@@ -457,6 +457,16 @@
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thông tin";
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(104, 305);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(75, 30);
+            this.button13.TabIndex = 21;
+            this.button13.Text = "Thống Kê";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // radioButton2
             // 
@@ -700,6 +710,16 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Thông tin";
             // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(101, 305);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(75, 30);
+            this.button14.TabIndex = 24;
+            this.button14.Text = "Thống Kê";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
@@ -938,6 +958,15 @@
             this.groupBox10.TabIndex = 15;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Thông tin";
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(101, 251);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(75, 30);
+            this.button15.TabIndex = 18;
+            this.button15.Text = "Thống Kê";
+            this.button15.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker2
             // 
@@ -1184,6 +1213,16 @@
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Thông tin";
             // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(101, 284);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(75, 30);
+            this.button16.TabIndex = 17;
+            this.button16.Text = "Thống Kê";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
             // textBox_giaban
             // 
             this.textBox_giaban.Location = new System.Drawing.Point(136, 175);
@@ -1351,45 +1390,6 @@
             this.label29.Size = new System.Drawing.Size(222, 31);
             this.label29.TabIndex = 13;
             this.label29.Text = "Chi Tiết Hóa Đơn";
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(104, 305);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 30);
-            this.button13.TabIndex = 21;
-            this.button13.Text = "Thống Kê";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
-            // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(101, 305);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(75, 30);
-            this.button14.TabIndex = 24;
-            this.button14.Text = "Thống Kê";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(101, 251);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(75, 30);
-            this.button15.TabIndex = 18;
-            this.button15.Text = "Thống Kê";
-            this.button15.UseVisualStyleBackColor = true;
-            // 
-            // button16
-            // 
-            this.button16.Location = new System.Drawing.Point(101, 284);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(75, 30);
-            this.button16.TabIndex = 17;
-            this.button16.Text = "Thống Kê";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // Form1
             // 

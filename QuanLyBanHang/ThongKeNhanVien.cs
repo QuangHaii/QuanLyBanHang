@@ -44,27 +44,21 @@ namespace QuanLyBanHang
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex == -1)
-                showdata();
-            else
+            switch (comboBox1.SelectedIndex)
             {
-                switch (comboBox1.SelectedIndex)
-                {
-                    case 0:
-                        {
-                            dieukien = "M";
-                            break;
-                        }
-                    case 1:
-                        {
-                            dieukien = "F";
-                            break;
-                        }
-                }
-                query = "select MANV,TENNV,GIOI from NHANVIEN where GIOI = '" + dieukien + "'";
-                dataGridView1.DataSource = modify.SearchTable(query);
+                case 0:
+                    {
+                        dieukien = "M";
+                        break;
+                    }
+                case 1:
+                    {
+                        dieukien = "F";
+                        break;
+                    }
             }
-
+            query = "select MANV,TENNV,GIOI from NHANVIEN where GIOI = '" + dieukien + "'";
+            dataGridView1.DataSource = modify.SearchTable(query);
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,11 +107,19 @@ namespace QuanLyBanHang
             }
             else
             {
-                query = "Select MANV,TENNV,LUONG from NHANVIEN where LUONG" + dieukien + name;
-                dataGridView4.DataSource = modify.SearchTable(query);
-                query = "Select count(LUONG) from NHANVIEN where LUONG" + dieukien + name;
-                dataGridView5.DataSource = modify.SearchTable(query);
+                try
+                {
+                    query = "Select MANV,TENNV,LUONG from NHANVIEN where LUONG" + dieukien + name;
+                    dataGridView4.DataSource = modify.SearchTable(query);
+                    query = "Select count(LUONG) from NHANVIEN where LUONG" + dieukien + name;
+                    dataGridView5.DataSource = modify.SearchTable(query);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }
 }
+
