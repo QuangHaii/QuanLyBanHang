@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyBanHang
 {
-    public partial class ThongKeHangHoa : Form
+    public partial class ThongKeCTHD: Form
     {
-        public ThongKeHangHoa()
+        public ThongKeCTHD()
         {
             InitializeComponent();
             showdata();
@@ -26,13 +26,13 @@ namespace QuanLyBanHang
             modify = new Modify();
             try
             {
-                query = "select MAHH,TENHH,(GIAMUA*SLTON) as 'TRI GIA' from HANGHOA";
+                query = "select MAHD,MAHH,(GIABAN*SL) as 'TRI GIA' from CTHD";
                 dataGridView1.DataSource = modify.SearchTable(query);
-                query = "select sum(GIAMUA*SLTON) from HANGHOA";
+                query = "select sum(GIABAN*SL) from CTHD";
                 dataGridView2.DataSource = modify.SearchTable(query);
-                query = "select MAHH,TENHH,GIAMUA from HANGHOA";
+                query = "select MAHD,MAHH,GIABAN from CTHD";
                 dataGridView3.DataSource = modify.SearchTable(query);
-                query = "select MAHH,TENHH,SLTON from HANGHOA";
+                query = "select MAHD,MAHH,SL from CTHD";
                 dataGridView4.DataSource = modify.SearchTable(query);
             }
             catch (Exception ex)
@@ -42,13 +42,13 @@ namespace QuanLyBanHang
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex == -1)
+            if(comboBox1.SelectedIndex == -1)
             {
                 showdata();
             }
             else
-                switch (comboBox1.SelectedIndex)
-                {
+            switch (comboBox1.SelectedIndex)
+            {
                 case 0:
                     {
                         dieukien = "=";
@@ -91,10 +91,10 @@ namespace QuanLyBanHang
             }
             else
             {
-                query = "Select MAHH,TENHH,GIAMUA from HANGHOA where GIAMUA"+dieukien+name;
-                dataGridView3.DataSource = modify.SearchTable(query);
-                query = "Select count(GIAMUA) from HANGHOA where GIAMUA" + dieukien + name;
-                dataGridView5.DataSource = modify.SearchTable(query);
+                    query = "Select MAHD,MAHH,GIABAN from CTHD where GIABAN" + dieukien + name;
+                    dataGridView3.DataSource = modify.SearchTable(query);
+                    query = "Select count(GIABAN) from CTHD where GIABAN" + dieukien + name;
+                    dataGridView5.DataSource = modify.SearchTable(query);
             }
         }
 
@@ -106,7 +106,7 @@ namespace QuanLyBanHang
             }
             else
                 switch (comboBox2.SelectedIndex)
-                {
+            {
                 case 0:
                     {
                         dieukien = "=";
@@ -149,10 +149,10 @@ namespace QuanLyBanHang
             }
             else
             {
-                query = "Select MAHH,TENHH,SLTON from HANGHOA where GIAMUA" + dieukien + name;
-                dataGridView4.DataSource = modify.SearchTable(query);
-                query = "Select count(SLTON) from HANGHOA where GIAMUA" + dieukien + name;
-                dataGridView6.DataSource = modify.SearchTable(query);
+                query = "Select MAHD,MAHH,SL from CTHD where SL " +dieukien+ name;
+                dataGridView3.DataSource = modify.SearchTable(query);
+                query = "Select count(SL) from CTHD where SL " + dieukien + name;
+                dataGridView5.DataSource = modify.SearchTable(query);
             }
         }
     }

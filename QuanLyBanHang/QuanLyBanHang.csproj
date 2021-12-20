@@ -67,6 +67,18 @@
     <Compile Include="ThongKeHangHoa.Designer.cs">
       <DependentUpon>ThongKeHangHoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThongKeCTHD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongKeCTHD.Designer.cs">
+      <DependentUpon>ThongKeCTHD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKeKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongKeKhachHang.Designer.cs">
+      <DependentUpon>ThongKeKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThongKeNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +99,12 @@
     </Compile>
     <EmbeddedResource Include="ThongKeHangHoa.resx">
       <DependentUpon>ThongKeHangHoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKeCTHD.resx">
+      <DependentUpon>ThongKeCTHD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKeKhachHang.resx">
+      <DependentUpon>ThongKeKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThongKeNhanVien.resx">
       <DependentUpon>ThongKeNhanVien.cs</DependentUpon>

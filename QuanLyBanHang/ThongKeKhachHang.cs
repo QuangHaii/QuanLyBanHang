@@ -10,30 +10,28 @@ using System.Windows.Forms;
 
 namespace QuanLyBanHang
 {
-    public partial class ThongKeNhanVien : Form
+    public partial class ThongKeKhachHang : Form
     {
-        public ThongKeNhanVien()
+        public ThongKeKhachHang()
         {
             InitializeComponent();
             showdata();
         }
-
         Modify modify;
         string query;
         string dieukien;
-
         public void showdata()
         {
             modify = new Modify();
             try
             {
-                query = "select MANV,TENNV,GIOI from NHANVIEN";
+                query = "select MAKH,TENKH,GIOI from KHACHHANG";
                 dataGridView1.DataSource = modify.SearchTable(query);
-                query = "select count(GIOI) from NHANVIEN where GIOI='M'";
+                query = "select count(GIOI) from KHACHHANG where GIOI='M'";
                 dataGridView2.DataSource = modify.SearchTable(query);
-                query = "select count(GIOI) from NHANVIEN where GIOI='F'";
+                query = "select count(GIOI) from KHACHHANG where GIOI='F'";
                 dataGridView3.DataSource = modify.SearchTable(query);
-                query = "select MANV,TENNV,LUONG from NHANVIEN";
+                query = "select MAKH,TENKH,DIACHI from KHACHHANG";
                 dataGridView4.DataSource = modify.SearchTable(query);
             }
             catch (Exception ex)
@@ -41,7 +39,6 @@ namespace QuanLyBanHang
                 MessageBox.Show("Lỗi: " + ex.Message, "Lỗi: ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.SelectedIndex == -1)
@@ -61,7 +58,7 @@ namespace QuanLyBanHang
                             break;
                         }
                 }
-                query = "select MANV,TENNV,GIOI from NHANVIEN where GIOI = '" + dieukien + "'";
+                query = "select MAKH,TENKH,GIOI from KHACHHANG where GIOI = '" + dieukien + "'";
                 dataGridView1.DataSource = modify.SearchTable(query);
             }
 
@@ -69,53 +66,14 @@ namespace QuanLyBanHang
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (comboBox2.SelectedIndex)
-            {
-                case 0:
-                    {
-                        dieukien = "=";
-                        break;
-                    }
-                case 1:
-                    {
-                        dieukien = ">";
-                        break;
-                    }
-                case 2:
-                    {
-                        dieukien = ">=";
-                        break;
-                    }
-                case 3:
-                    {
-                        dieukien = "<";
-                        break;
-                    }
-                case 4:
-                    {
-                        dieukien = "<=";
-                        break;
-                    }
-                case 5:
-                    {
-                        dieukien = "!=";
-                        break;
-                    }
-            }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            string name = textBox1.Text.Trim();
-            if (name == "")
-            {
+            if (comboBox2.SelectedIndex == -1)
                 showdata();
-            }
             else
             {
-                query = "Select MANV,TENNV,LUONG from NHANVIEN where LUONG" + dieukien + name;
+                dieukien = comboBox2.Text;
+                query = "select MAKH,TENKH,DIACHI from KHACHHANG where DIACHI LIKE N'" + dieukien + "'";
                 dataGridView4.DataSource = modify.SearchTable(query);
-                query = "Select count(LUONG) from NHANVIEN where LUONG" + dieukien + name;
+                query = "select count(DIACHI) from KHACHHANG where DIACHI LIKE N'" + dieukien + "'";
                 dataGridView5.DataSource = modify.SearchTable(query);
             }
         }

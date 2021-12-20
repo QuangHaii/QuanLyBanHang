@@ -1370,6 +1370,7 @@
             this.button14.TabIndex = 24;
             this.button14.Text = "Thống Kê";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button15
             // 
@@ -1388,6 +1389,7 @@
             this.button16.TabIndex = 17;
             this.button16.Text = "Thống Kê";
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // Form1
             // 
