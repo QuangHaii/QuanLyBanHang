@@ -40,15 +40,6 @@ namespace QuanLyBanHang
                 MessageBox.Show("Lỗi: " + ex.Message, "Lỗi: ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private bool checkcb1()
-        {
-            if (comboBox1.SelectedIndex == -1)
-            {
-                MessageBox.Show("Mời bạn chọn điều kiện!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            return true;
-        }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
