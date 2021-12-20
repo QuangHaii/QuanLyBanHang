@@ -788,5 +788,12 @@ namespace QuanLyBanHang
             dialogResult = thongKeHangHoa.ShowDialog();
             thongKeHangHoa.Dispose();
         }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            ThongKeNhanVien thongKeNhanVien = new ThongKeNhanVien();
+            dialogResult = thongKeNhanVien.ShowDialog();
+            thongKeNhanVien.Dispose();
+        }
     }
 }
