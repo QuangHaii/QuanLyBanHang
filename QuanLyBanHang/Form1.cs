@@ -19,6 +19,7 @@ namespace QuanLyBanHang
         }
 
         Modify modify;
+        DialogResult dialogResult;
         HangHoa hangHoa;
         KhachHang khachHang;
         NhanVien nhanVien;
@@ -598,8 +599,8 @@ namespace QuanLyBanHang
         {
             textBox_mahd.Text = dataGridView4.SelectedRows[0].Cells[0].Value.ToString();
             dateTimePicker2.Text = dataGridView4.SelectedRows[0].Cells[1].Value.ToString();
-            textBox_makh2.Text = dataGridView4.SelectedRows[0].Cells[3].Value.ToString();
-            textBox_manv2.Text = dataGridView4.SelectedRows[0].Cells[4].Value.ToString();
+            textBox_makh2.Text = dataGridView4.SelectedRows[0].Cells[2].Value.ToString();
+            textBox_manv2.Text = dataGridView4.SelectedRows[0].Cells[3].Value.ToString();
         }
         private void textBox_searchhd_TextChanged(object sender, EventArgs e)
         {
@@ -779,6 +780,13 @@ namespace QuanLyBanHang
                 string query = "Select * from CTHD where MAHD like N'%" + name + "%'";
                 dataGridView5.DataSource = modify.SearchTable(query);
             }
+        }
+
+        private void button_thongkehh_Click(object sender, EventArgs e)
+        {
+            ThongKeHangHoa thongKeHangHoa = new ThongKeHangHoa();
+            dialogResult = thongKeHangHoa.ShowDialog();
+            thongKeHangHoa.Dispose();
         }
     }
 }
