@@ -150,9 +150,9 @@ namespace QuanLyBanHang
                 try
                 {
                     query = "Select MAHD,MAHH,SL from CTHD where SL " + dieukien + name;
-                    dataGridView3.DataSource = modify.SearchTable(query);
+                    dataGridView4.DataSource = modify.SearchTable(query);
                     query = "Select count(SL) from CTHD where SL " + dieukien + name;
-                    dataGridView5.DataSource = modify.SearchTable(query);
+                    dataGridView6.DataSource = modify.SearchTable(query);
                 }
                 catch (Exception ex)
                 {
