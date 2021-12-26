@@ -148,9 +148,9 @@ namespace QuanLyBanHang
             {
                 try
                 {
-                    query = "Select MAHH,TENHH,SLTON from HANGHOA where GIAMUA" + dieukien + name;
+                    query = "Select MAHH,TENHH,SLTON from HANGHOA where SLTON" + dieukien + name;
                     dataGridView4.DataSource = modify.SearchTable(query);
-                    query = "Select count(SLTON) from HANGHOA where GIAMUA" + dieukien + name;
+                    query = "Select count(SLTON) from HANGHOA where SLTON" + dieukien + name;
                     dataGridView6.DataSource = modify.SearchTable(query);
                 }
                 catch (Exception ex)

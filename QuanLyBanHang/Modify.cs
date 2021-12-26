@@ -12,10 +12,6 @@ namespace QuanLyBanHang
     {
         SqlDataAdapter dataAdapter;
         SqlCommand command;
-        public Modify()
-        {
-        }
-
         public DataTable SearchTable(string query)
         {
             DataTable dataTable = new DataTable();
@@ -27,6 +23,9 @@ namespace QuanLyBanHang
                 sqlConnection.Close();
             }
             return dataTable;
+        }
+        public Modify()
+        {
         }
         //------------------------Hàng Hóa---------------------------
         public bool ThemHH(HangHoa hangHoa)

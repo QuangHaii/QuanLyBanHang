@@ -330,9 +330,9 @@ namespace QuanLyBanHang
             dateTimePicker1.Text = dataGridView3.SelectedRows[0].Cells[2].Value.ToString();
             textBox_luong.Text = dataGridView3.SelectedRows[0].Cells[4].Value.ToString();
             if (dataGridView3.SelectedRows[0].Cells[3].Value.ToString() == "M")
-                radioButton3.Checked = true;
+                radioButton1.Checked = true;
             else
-                radioButton4.Checked = true;
+                radioButton2.Checked = true;
         }
 
         private void textBox_timnv_TextChanged(object sender, EventArgs e)
@@ -383,7 +383,7 @@ namespace QuanLyBanHang
                     string tenkh = this.textBox_tenkh.Text;
                     string diachi = this.textBox_diachi.Text;
                     string dt = this.textBox_dt.Text;
-                    char gioi = (radioButton1.Checked ? 'M' : 'F');
+                    char gioi = (radioButton3.Checked ? 'M' : 'F');
                     khachHang = new KhachHang(makh, tenkh, diachi, dt, gioi);
                     if (modify.ThemKH(khachHang))
                     {
@@ -417,7 +417,7 @@ namespace QuanLyBanHang
                     string tenkh = this.textBox_tenkh.Text;
                     string diachi = this.textBox_diachi.Text;
                     string dt = this.textBox_dt.Text;
-                    char gioi = (radioButton1.Checked ? 'M' : 'F');
+                    char gioi = (radioButton3.Checked ? 'M' : 'F');
                     khachHang = new KhachHang(makh, tenkh, diachi, dt, gioi);
                     if (modify.SuaKH(khachHang))
                     {
@@ -481,9 +481,9 @@ namespace QuanLyBanHang
             textBox_diachi.Text = dataGridView2.SelectedRows[0].Cells[2].Value.ToString();
             textBox_dt.Text = dataGridView2.SelectedRows[0].Cells[3].Value.ToString();
             if (dataGridView2.SelectedRows[0].Cells[4].Value.ToString() == "M")
-                radioButton1.Checked = true;
+                radioButton3.Checked = true;
             else
-                radioButton2.Checked = true;
+                radioButton4.Checked = true;
         }
         //----------------------------Hóa Đơn----------------------------------
         private bool checkboxHD()

@@ -92,5 +92,10 @@ namespace QuanLyBanHang
                 }
             }
         }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
